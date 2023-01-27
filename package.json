@@ -1,0 +1,32 @@
+{
+  "name": "@sigmie/react",
+  "version": "1.0.2",
+  "description": "React JS tools for Sigmie application.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && NODE_ENV=production babel src/ --out-dir dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigmie/react.git"
+  },
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "keywords": [
+    "react",
+    "sigmie"
+  ],
+  "author": "nico@sigmie.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sigmie/react/issues"
+  },
+  "homepage": "https://github.com/sigmie/react#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
