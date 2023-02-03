@@ -1,6 +1,6 @@
 {
   "name": "@sigmie/react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React JS tools for Sigmie application.",
   "main": "dist/index.js",
   "scripts": {
