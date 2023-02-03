@@ -12,7 +12,7 @@ function SigmieSearch(props) {
       filter: props.filter
     }
 
-    fetch(`https://${props.applicationId}.sigmie.app/v1/search/${props.search}`,
+    fetch(`https://${props.applicationId}.sigmie.app/v1/search/${props.search}d`,
       {
         method: 'POST',
         mode: 'cors',
@@ -24,14 +24,18 @@ function SigmieSearch(props) {
         },
         redirect: 'follow',
         body: JSON.stringify(body)
-      }).then((respone) => {
-        return respone.json();
+      }).then((response) => {
+        return response.json();
       })
-      .then((res) => {
+      .then((response) => {
+
+        if (response.error) {
+          throw new Error(response.message, { cause: response });
+        }
 
         setState({
-          hits: res.hits,
-          total: res.total,
+          hits: response.hits,
+          total: response.total,
           loading: false,
         });
       });
@@ -39,21 +43,24 @@ function SigmieSearch(props) {
 
   useEffect(() => {
     const getData = setTimeout(() => {
-      search()
+      search();
     }, props.debounceMs)
-    return () => clearTimeout(getData)
+
+    return () => {
+      clearTimeout(getData)
+    }
   }, [props]);
 
   return (<div key={state.query}>
-    {props.children(state)}
+    {props.children({ ...state })}
   </div>)
 }
 
 SigmieSearch.defaultProps = {
-  debounceMs: 150,
   query: '',
-  per_page: 10,
   filter: '',
+  debounceMs: 150,
+  perPage: 10,
 }
 
 export default SigmieSearch;
