@@ -1,32 +1,27 @@
 {
-  "name": "@sigmie/react",
-  "version": "1.0.3",
-  "description": "React JS tools for Sigmie application.",
+  "name": "@sigmie/vue",
+  "version": "1.0.0",
+  "description": "Vue JS tools for Sigmie application.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && NODE_ENV=production babel src/ --out-dir dist --copy-files"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sigmie/react.git"
-  },
-  "peerDependencies": {
-    "react": "^16 || ^17 || ^18",
-    "react-dom": "^16 || ^17 || ^18"
+    "url": "git+https://github.com/sigmie/vue.git"
   },
   "keywords": [
     "react",
-    "sigmie"
+    "vue"
   ],
   "author": "nico@sigmie.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sigmie/react/issues"
+    "url": "https://github.com/sigmie/vue/issues"
   },
-  "homepage": "https://github.com/sigmie/react#readme",
+  "homepage": "https://github.com/sigmie/vue#readme",
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2"
+    "vite": "^4.1.1",
+    "vue": "^3.2.47"
   }
 }
