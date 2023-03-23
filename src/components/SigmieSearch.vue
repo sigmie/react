@@ -26,11 +26,11 @@ let props = defineProps({
     type: String,
     default: "",
   },
-  filter: {
+  filters: {
     type: String,
     default: "",
   },
-  facet: {
+  facets: {
     type: String,
     default: "",
   },
@@ -54,8 +54,8 @@ let search = function () {
   const body = {
     query: props.query,
     per_page: props.perPage,
-    filter: props.filter,
-    facet: props.facet,
+    filters: props.filters,
+    facets: props.facets,
   };
 
   const url = props.url
