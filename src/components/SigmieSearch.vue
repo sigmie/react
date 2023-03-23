@@ -44,7 +44,7 @@ let props = defineProps({
   },
 });
 
-let state = reactive({ hits: {}, total: 0, loading: false });
+let state = reactive({ hits: {}, total: 0, loading: false, facets: {} });
 
 onBeforeMount(() => search());
 
@@ -84,7 +84,7 @@ let search = function () {
 
       state.hits = response.hits;
       state.total = response.total;
-      state.facets = response.facet;
+      state.facets = response.facets;
       state.loading = false;
     });
 };
