@@ -6,6 +6,10 @@
 import { reactive, defineProps, watch, onBeforeMount } from "vue";
 
 let props = defineProps({
+  url: {
+    type: String,
+    default: null,
+  },
   search: {
     type: String,
     default: "",
@@ -23,6 +27,10 @@ let props = defineProps({
     default: "",
   },
   filter: {
+    type: String,
+    default: "",
+  },
+  facet: {
     type: String,
     default: "",
   },
@@ -47,9 +55,14 @@ let search = function () {
     query: props.query,
     per_page: props.perPage,
     filter: props.filter,
+    facet: props.facet,
   };
 
-  fetch(`https://${props.applicationId}.sigmie.app/v1/search/${props.search}`, {
+  const url = props.url
+    ? props.url
+    : `https://${props.applicationId}.sigmie.app/v1/search/${props.search}`;
+
+  fetch(url, {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
@@ -71,6 +84,7 @@ let search = function () {
 
       state.hits = response.hits;
       state.total = response.total;
+      state.facets = response.facet;
       state.loading = false;
     });
 };
