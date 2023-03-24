@@ -42,6 +42,10 @@ let props = defineProps({
     type: Number,
     default: 10,
   },
+  sort: {
+    type: String,
+    default: "_score",
+  },
   debounceMs: {
     type: Number,
     default: 150,
