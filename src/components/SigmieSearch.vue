@@ -77,6 +77,7 @@ let search = function () {
     filters: props.filters,
     facets: props.facets,
     page: props.page,
+    sort: props.sort,
   };
 
   const url = props.url
