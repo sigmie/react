@@ -53,6 +53,7 @@ let props = defineProps({
 });
 
 let state = reactive({
+  autocomplete: [],
   hits: {},
   total: 0,
   page: 1,
@@ -108,6 +109,7 @@ let search = function () {
       state.total = response.total;
       state.facets = response.facets;
       state.page = response.page;
+      state.autocomplete = response.autocomplete;
       state.processing_time_ms = response.processing_time_ms;
       state.current_page = response.page;
       state.last_page = Math.ceil(response.total / props.perPage);
